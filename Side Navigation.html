@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Navigation Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* The sidebar */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+            transform: translateX(-250px); /* Initially hidden */
+            transition: transform 0.3s;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            cursor: pointer;
+        }
+
+        .sidebar .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .openbtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        /* Page content */
+        .content {
+            margin-left: 250px; /* Make space for the sidebar */
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar.open {
+            transform: translateX(0); /* Show the sidebar */
+        }
+
+        .content.shifted {
+            margin-left: 0; /* Adjust content margin when sidebar is open */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Open Sidebar Button -->
+    <span class="openbtn" onclick="openNav()">&#9776; Open Sidebar</span>
+
+    <!-- Page Content -->
+    <div id="main" class="content">
+        <h2>Side Navigation Example</h2>
+        <p>This is an example of a side navigation menu. Click the "Open Sidebar" button to display the sidebar.</p>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").classList.add("open");
+            document.getElementById("main").classList.add("shifted");
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").classList.remove("open");
+            document.getElementById("main").classList.remove("shifted");
+        }
+    </script>
+
+</body>
+</html>
+
+<!-- Creating a side navigation (sidebar) allows users to navigate through different sections of a website or application. This example will include a basic sidebar that can be toggled open and closed. 
+
+Here’s a complete example using HTML, CSS, and JavaScript:
+
+### Complete HTML File with Embedded CSS and JavaScript
+
+```html
+### Explanation
+
+1. **HTML Structure**:
+   - **`.sidebar`**: Contains the side navigation links and a close button. It starts off-screen (hidden) and slides in when toggled.
+   - **`.openbtn`**: A button to open the sidebar.
+   - **`.content`**: Main content area that shifts to make space for the sidebar when it’s open.
+
+2. **CSS Styling**:
+   - **`.sidebar`**: Styles the sidebar, including its position, width, and initial off-screen position.
+   - **`.sidebar a`**: Styles the links within the sidebar.
+   - **`.closebtn`**: Styles the close button inside the sidebar.
+   - **`.openbtn`**: Styles the button that opens the sidebar.
+   - **`.content`**: Adds margin to the main content to make room for the sidebar.
+   - **`.sidebar.open`**: Transforms the sidebar to be visible when the `open` class is added.
+   - **`.content.shifted`**: Adjusts the content margin to accommodate the open sidebar.
+
+3. **JavaScript**:
+   - **`openNav()`**: Adds the `open` class to the sidebar and `shifted` class to the content when the open button is clicked.
+   - **`closeNav()`**: Removes the `open` and `shifted` classes to hide the sidebar and return the content to its original position when the close button is clicked.
+
+This example creates a simple, interactive sidebar that can be toggled open and closed. You can customize the styling, add more links, or modify the functionality as needed for your specific use case. -->

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #ddd;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 10px;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Responsive Tables</h1>
+
+        <!-- Table with Responsive Design -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apple</td>
+                        <td>Fruit</td>
+                        <td>$1.00</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Banana</td>
+                        <td>Fruit</td>
+                        <td>$0.50</td>
+                        <td>Out of Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Carrot</td>
+                        <td>Vegetable</td>
+                        <td>$0.75</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Dates</td>
+                        <td>Fruit</td>
+                        <td>$3.00</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Eggplant</td>
+                        <td>Vegetable</td>
+                        <td>$1.25</td>
+                        <td>Out of Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Fig</td>
+                        <td>Fruit</td>
+                        <td>$2.00</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Grapes</td>
+                        <td>Fruit</td>
+                        <td>$2.50</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Honeydew</td>
+                        <td>Fruit</td>
+                        <td>$3.50</td>
+                        <td>Out of Stock</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+```
+
+<!-- ### Explanation
+Creating responsive tables is essential for ensuring that your tables are viewable and functional on various devices, including smartphones and tablets. Below is a complete example demonstrating how to make tables responsive using HTML and CSS. This example includes several approaches to handle responsiveness, including wrapping tables in scrollable containers and using media queries.
+
+### Complete HTML File with Embedded CSS
+
+```html
+
+#### **HTML Structure**
+
+1. **Table**: 
+   - Contains a `thead` for column headers and a `tbody` for table data rows.
+
+2. **Container**: 
+   - Wraps the table and ensures proper margin and padding.
+
+#### **CSS Styling**
+
+1. **General Table Styles**:
+   - **Table**: Full-width, with `border-collapse` to remove spacing between borders. Includes background color, border radius, and box shadow for a clean look.
+   - **Table Headers**: Styled with a background color and white text.
+   - **Table Rows**: Alternating row colors and hover effects for better readability.
+
+2. **Responsive Design**:
+   - **Table Container**: Wraps the table with `overflow-x: auto` to enable horizontal scrolling on small screens.
+   - **Media Query**: For screens smaller than 600px:
+     - **Block Display**: Changes `table`, `thead`, `tbody`, `th`, `td`, and `tr` to `block` for better stackable layout.
+     - **Hidden Headers**: Hides table headers to simplify the layout.
+     - **Flexbox Layout**: Uses flexbox to stack table rows and makes each cell display as a block with labels shown before the data.
+
+This setup ensures that the table remains usable and visually appealing across different devices and screen sizes, providing a good user experience regardless of the device used. -->

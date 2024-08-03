@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .accordion {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .accordion:hover {
+            background-color: #555;
+        }
+
+        .accordion.active {
+            background-color: #4CAF50;
+        }
+
+        .panel {
+            padding: 15px;
+            background-color: #f1f1f1;
+            display: none;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Accordion Example</h2>
+    <p>Click on the headers below to open the accordion content:</p>
+
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>This is the content of Section 1.</p>
+    </div>
+
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>This is the content of Section 2.</p>
+    </div>
+
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+        <p>This is the content of Section 3.</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.accordion').forEach(button => {
+            button.addEventListener('click', function() {
+                // Toggle active class
+                this.classList.toggle('active');
+
+                // Get the next sibling panel
+                const panel = this.nextElementSibling;
+
+                // Toggle panel visibility
+                if (panel.style.display === 'block') {
+                    panel.style.display = 'none';
+                } else {
+                    panel.style.display = 'block';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+<!-- An accordion is a common UI pattern that allows users to expand and collapse sections of content.
+It's useful for hiding and showing detailed information without cluttering the interface. 
+Here's a complete example of an accordion component using HTML, CSS, and JavaScript:
+Explanation
+HTML Structure:
+
+Accordion Buttons: Each button has the class accordion and is followed by a div with the class panel that contains the content for that section.
+Panel: Contains the content that will be shown or hidden when the accordion button is clicked.
+CSS Styling:
+
+.accordion: Styles the accordion headers with padding, background color, text color, and transition effects for hover and active states.
+.accordion.active: Applies a different background color when the accordion header is active (clicked).
+.panel: Styles the content panel with padding, background color, and hides it by default.
+JavaScript:
+
+Event Listener: Adds a click event listener to each accordion button.
+Toggle Active State: Toggles the active class on the clicked accordion header.
+Toggle Panel Visibility: Shows or hides the corresponding panel based on its current display state.
+This example provides a basic accordion that can be easily customized with additional styles and functionality. 
+Each accordion section expands or collapses when clicked, and you can add more sections by following the same HTML structure. -->

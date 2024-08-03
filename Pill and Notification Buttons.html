@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pill and Notification Buttons Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Pill Button Style */
+        .pill-button {
+            border-radius: 50px; /* Rounded pill shape */
+            background-color: #007bff;
+        }
+
+        .pill-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Notification Button Style */
+        .notification-button {
+            position: relative;
+            background-color: #28a745;
+        }
+
+        .notification-button:hover {
+            background-color: #218838;
+        }
+
+        .notification-button .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pill and Notification Buttons Example</h1>
+
+    <div class="button-container">
+        <!-- Pill Button -->
+        <a href="#" class="button pill-button">Pill Button</a>
+
+        <!-- Notification Button -->
+        <a href="#" class="button notification-button">
+            Notifications
+            <span class="notification-badge">3</span>
+        </a>
+    </div>
+
+</body>
+</html>
+```
+
+<!-- ### Explanation
+Creating pill-shaped buttons and notification buttons can enhance the user interface of your web applications. Below is an example demonstrating both types of buttons using HTML and CSS.
+
+### Complete HTML File with Embedded CSS
+
+```html
+1. **HTML Structure**:
+   - **`.button-container`**: Centers the buttons and spaces them vertically.
+   - **`.button`**: A base class for general button styling.
+   - **`.pill-button`**: Specific class for pill-shaped buttons.
+   - **`.notification-button`**: Specific class for notification buttons, with a badge for notifications.
+   - **`.notification-badge`**: Badge element that appears on top of the notification button.
+
+2. **CSS Styling**:
+   - **`.button`**:
+     - General button styles including padding, font size, border radius, and transition effects.
+   - **`.pill-button`**:
+     - **`border-radius: 50px`**: Makes the button pill-shaped.
+     - **`background-color: #007bff`**: Primary blue color, changes on hover.
+   - **`.notification-button`**:
+     - **`position: relative`**: Allows positioning of the badge relative to the button.
+     - **`background-color: #28a745`**: Green color, changes on hover.
+   - **`.notification-badge`**:
+     - **`position: absolute`**: Positioned relative to the notification button.
+     - **`background-color: #dc3545`**: Red color for the badge, indicating notifications.
+     - **`border-radius: 50%`**: Makes the badge round.
+
+3. **Hover Effects**:
+   - Buttons slightly change color when hovered to provide visual feedback.
+
+This example illustrates how to create pill-shaped buttons and buttons with notification badges. You can adjust the colors, sizes, and other properties to match your design requirements. -->

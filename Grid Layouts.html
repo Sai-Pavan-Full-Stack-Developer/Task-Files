@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr 3fr;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            gap: 10px;
+            height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            grid-area: header;
+            background: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .main {
+            grid-area: main;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            grid-area: footer;
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-rows: auto auto 1fr auto;
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "sidebar"
+                    "footer";
+            }
+
+            .sidebar {
+                order: 2;
+            }
+
+            .main {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <header>
+            Header
+        </header>
+
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <p>This is the sidebar area. It contains additional navigation or information.</p>
+        </div>
+
+        <div class="main">
+            <h2>Main Content</h2>
+            <p>This is the main content area. Here you can put your primary content, articles, or any other important information.</p>
+
+            <!-- Example of grid layout within the main content area -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                <div style="background: #e9ecef; padding: 20px; border-radius: 8px;">Content Block 1</div>
+                <div style="background: #e9ecef; padding: 20px; border-radius: 8px;">Content Block 2</div>
+                <div style="background: #e9ecef; padding: 20px; border-radius: 8px;">Content Block 3</div>
+            </div>
+        </div>
+
+        <footer>
+            Footer
+        </footer>
+    </div>
+
+</body>
+</html>
+
+<!-- ### Explanation
+Grid layouts are a powerful way to organize content in a structured and responsive manner. They allow you to create complex layouts with rows and columns, making it easier to manage various elements on a webpage. Below is a complete example demonstrating a grid layout using CSS Grid. This example includes:
+
+1. **A Header**
+2. **A Main Content Area with a Sidebar**
+3. **Three Main Content Sections**
+4. **A Footer**
+
+### Complete HTML File with Embedded CSS
+
+```html
+#### **HTML Structure**
+
+1. **Grid Container**:
+   - A `div` with the class `grid-container` serves as the grid container.
+
+2. **Header**:
+   - Positioned at the top of the grid layout and spans both columns.
+
+3. **Sidebar**:
+   - Positioned in the first column.
+
+4. **Main Content**:
+   - Positioned in the second column and spans the main content area.
+
+5. **Footer**:
+   - Positioned at the bottom of the grid layout and spans both columns.
+
+#### **CSS Styling**
+
+1. **Grid Layout**:
+   - **`.grid-container`**: Defines the grid with two columns and three rows, and specifies the areas for header, sidebar, main, and footer.
+   - **`grid-template-areas`**: Specifies the layout structure by naming areas.
+
+2. **Responsiveness**:
+   - **Media Query**: Adjusts the grid layout for smaller screens by stacking elements vertically and making the sidebar come after the main content.
+
+3. **Grid Inside Main Content**:
+   - An additional grid layout within the main content area demonstrates how to create a three-column layout for smaller content blocks.
+
+#### **Responsiveness**
+
+- **Media Query**: The layout adjusts to a single column for devices with a width of 768px or less, making it more mobile-friendly.
+
+This example provides a foundational grid layout that is flexible and easy to adjust. You can further customize it by adding more styles, adjusting the grid properties, or including additional content. -->

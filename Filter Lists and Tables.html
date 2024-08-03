@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Lists and Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filter {
+            margin-bottom: 20px;
+        }
+
+        .filter input {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .list, .table {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .list ul li:last-child {
+            border-bottom: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 600px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- List Filtering -->
+        <div class="filter">
+            <h2>Filter List</h2>
+            <input type="text" id="listFilter" placeholder="Search list...">
+        </div>
+
+        <div class="list">
+            <ul id="list">
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Cherry</li>
+                <li>Date</li>
+                <li>Elderberry</li>
+                <li>Fig</li>
+                <li>Grape</li>
+                <li>Honeydew</li>
+            </ul>
+        </div>
+
+        <!-- Table Filtering -->
+        <div class="filter">
+            <h2>Filter Table</h2>
+            <input type="text" id="tableFilter" placeholder="Search table...">
+        </div>
+
+        <div class="table">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apple</td>
+                        <td>Fruit</td>
+                        <td>$1.00</td>
+                    </tr>
+                    <tr>
+                        <td>Banana</td>
+                        <td>Fruit</td>
+                        <td>$0.50</td>
+                    </tr>
+                    <tr>
+                        <td>Carrot</td>
+                        <td>Vegetable</td>
+                        <td>$0.75</td>
+                    </tr>
+                    <tr>
+                        <td>Dates</td>
+                        <td>Fruit</td>
+                        <td>$3.00</td>
+                    </tr>
+                    <tr>
+                        <td>Eggplant</td>
+                        <td>Vegetable</td>
+                        <td>$1.25</td>
+                    </tr>
+                    <tr>
+                        <td>Fig</td>
+                        <td>Fruit</td>
+                        <td>$2.00</td>
+                    </tr>
+                    <tr>
+                        <td>Grapes</td>
+                        <td>Fruit</td>
+                        <td>$2.50</td>
+                    </tr>
+                    <tr>
+                        <td>Honeydew</td>
+                        <td>Fruit</td>
+                        <td>$3.50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // List Filtering
+        document.getElementById('listFilter').addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            const items = document.querySelectorAll('#list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+
+        // Table Filtering
+        document.getElementById('tableFilter').addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#table tbody tr');
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                let rowContainsText = false;
+                for (let cell of cells) {
+                    if (cell.textContent.toLowerCase().includes(filter)) {
+                        rowContainsText = true;
+                        break;
+                    }
+                }
+                row.style.display = rowContainsText ? '' : 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>
+```
+
+<!-- ### Explanation
+ Filtering lists and tables is a common feature in web applications to help users find specific information quickly. Below is a complete example demonstrating how to implement filtering for both a list and a table using HTML, CSS, and JavaScript.
+
+### Complete HTML File with Embedded CSS and JavaScript
+
+```html
+
+
+#### **HTML Structure**
+
+1. **List Filtering**:
+   - **Filter Input**: An input field to filter items in the list.
+   - **List**: An unordered list of items.
+
+2. **Table Filtering**:
+   - **Filter Input**: An input field to filter table rows.
+   - **Table**: A table with columns for `Name`, `Category`, and `Price`.
+
+#### **CSS Styling**
+
+1. **General Styles**:
+   - **Container**: Centers the content and sets a maximum width.
+   - **Filter**: Styles for the filter input fields.
+   - **List and Table**: Basic styles for the list and table, including responsive design for tables.
+
+2. **Table Styles**:
+   - **Row Colors**: Alternating row colors for readability and hover effects.
+
+#### **JavaScript Functionality**
+
+1. **List Filtering**:
+   - **Event Listener**: Adds a listener to the search input.
+   - **Filter Logic**: Hides list items that do not match the search query.
+
+2. **Table Filtering**:
+   - **Event Listener**: Adds a listener to the search input.
+   - **Filter Logic**: Checks if any cell in a row contains the search query and hides rows that do not match.
+
+This example provides a practical demonstration of how to implement filtering for both lists and tables, making it easier for users to find relevant items in long lists or large datasets. -->

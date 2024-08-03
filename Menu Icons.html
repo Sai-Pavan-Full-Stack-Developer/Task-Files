@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Icons Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            height: 100vh; /* Full height of the viewport */
+            width: 60px; /* Initial width of the menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            transition: width 0.3s;
+            overflow-x: hidden;
+        }
+
+        .menu:hover {
+            width: 200px; /* Width when expanded */
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 24px;
+            transition: background-color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        .menu .icon {
+            margin-right: 10px;
+        }
+
+        .menu .text {
+            display: none; /* Hide text initially */
+        }
+
+        .menu:hover .text {
+            display: inline; /* Show text when menu is expanded */
+        }
+
+        .menu .menu-item {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="#" class="menu-item">
+            <i class="fas fa-home icon"></i>
+            <span class="text">Home</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-search icon"></i>
+            <span class="text">Search</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-envelope icon"></i>
+            <span class="text">Messages</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-user icon"></i>
+            <span class="text">Profile</span>
+        </a>
+    </div>
+
+    <script>
+        // You can add JavaScript here if needed for additional functionality
+    </script>
+</body>
+</html>
+
+<!-- 
+Explanation
+HTML Structure:
+
+<div class="menu">: The container for the menu. It includes a series of <a> elements, each representing a menu item with an icon and text.
+<i class="fas fa-..."></i>: Font Awesome icons used for each menu item.
+<span class="text">: The text associated with each icon, which will be shown when the menu is expanded.
+CSS Styling:
+
+.menu: Defines the fixed position and initial width of the menu. The transition property allows for smooth resizing.
+.menu:hover: Expands the menu when hovered over.
+.menu a: Styles the links within the menu, including color, padding, and hover effects.
+.menu .icon: Applies styling to the icons inside the menu items.
+.menu .text: Initially hides the text next to each icon and displays it when the menu is expanded.
+Font Awesome:
+
+Included via a CDN link in the <head> section, providing the icon set used in the menu.
+JavaScript:
+
+Not used in this basic example, but the script tag is included if you need to add interactivity or functionality later.
+This example creates a sidebar menu with icons and text. The menu expands on hover to reveal the text alongside the icons. You can customize the colors, sizes, and functionality as needed to fit your design requirements. -->

@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading and Download Buttons Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            opacity: 0.8;
+        }
+
+        .button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .loading-button .spinner {
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .download-button {
+            background-color: #28a745;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-button .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+
+        .download-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Loading and Download Buttons Example</h1>
+
+    <div class="button-container">
+        <!-- Loading Button -->
+        <button class="button loading-button" disabled>
+            <div class="spinner"></div>
+            Loading...
+        </button>
+
+        <!-- Download Button -->
+        <a href="https://example.com/sample-file.zip" class="button download-button" download>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17h-2v-6h2v6zm4-2h-4v-6h4v6zm-2-8l4 4-1.41 1.41L12 14.83l-2.59-2.59L8 11l4-4z"/></svg>
+            Download
+        </a>
+    </div>
+
+</body>
+</html>
+
+
+<!-- ### Explanation
+Loading and download buttons are often used in web applications to indicate progress and allow users to download files. Here’s an example demonstrating how to create both types of buttons using HTML and CSS. This includes a loading button with a spinner animation and a download button with a download icon.
+
+### Complete HTML File with Embedded CSS
+
+```html
+1. **HTML Structure**:
+   - **`.button-container`**: Contains and centers the buttons.
+   - **`.button`**: Base class for button styling.
+   - **`.loading-button`**: Button that displays a loading spinner.
+   - **`.download-button`**: Button for downloading files, including an SVG icon for visual representation.
+
+2. **CSS Styling**:
+   - **`.button`**:
+     - Basic styling for all buttons including padding, font size, border radius, and color.
+   - **`.loading-button`**:
+     - Styles for the loading button including a spinner animation.
+     - **`.spinner`**: A spinning loader created using CSS `border` and `animation`.
+     - **`@keyframes spin`**: Defines the spinning animation.
+   - **`.download-button`**:
+     - Styles for the download button, including a green background color and alignment for the SVG icon.
+     - **`.icon`**: Styles for the SVG download icon.
+
+3. **Button States**:
+   - **Hover**: Buttons slightly change opacity on hover for visual feedback.
+   - **Disabled**: The loading button is disabled and styled with a gray color to indicate it cannot be interacted with.
+
+4. **Download Button**:
+   - Uses an `<a>` tag with the `download` attribute to enable file downloading.
+   - Includes an SVG icon for visual representation.
+
+This example shows how to create and style both loading and download buttons, making use of CSS for animations and visual effects. You can replace the placeholder URLs and icons with your own as needed. -->

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Effects Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .grayscale {
+            filter: grayscale(100%);
+        }
+
+        .sepia {
+            filter: sepia(100%);
+        }
+
+        .blur {
+            filter: blur(5px);
+        }
+
+        .brightness {
+            filter: brightness(150%);
+        }
+
+        .contrast {
+            filter: contrast(200%);
+        }
+
+        .saturate {
+            filter: saturate(200%);
+        }
+
+        .hover-effects img:hover {
+            transform: scale(1.1);
+            filter: brightness(110%) saturate(120%);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Image Effects Examples</h1>
+    <div class="image-container">
+        <div class="image-effect grayscale">
+            <img src="https://via.placeholder.com/300x200?text=Grayscale" alt="Grayscale Effect">
+            <p>Grayscale</p>
+        </div>
+        <div class="image-effect sepia">
+            <img src="https://via.placeholder.com/300x200?text=Sepia" alt="Sepia Effect">
+            <p>Sepia</p>
+        </div>
+        <div class="image-effect blur">
+            <img src="https://via.placeholder.com/300x200?text=Blur" alt="Blur Effect">
+            <p>Blur</p>
+        </div>
+        <div class="image-effect brightness">
+            <img src="https://via.placeholder.com/300x200?text=Brightness" alt="Brightness Effect">
+            <p>Brightness</p>
+        </div>
+        <div class="image-effect contrast">
+            <img src="https://via.placeholder.com/300x200?text=Contrast" alt="Contrast Effect">
+            <p>Contrast</p>
+        </div>
+        <div class="image-effect saturate">
+            <img src="https://via.placeholder.com/300x200?text=Saturate" alt="Saturate Effect">
+            <p>Saturate</p>
+        </div>
+    </div>
+
+    <h2>Hover Effects</h2>
+    <div class="image-container hover-effects">
+        <div class="image-effect">
+            <img src="https://via.placeholder.com/300x200?text=Hover+Effect" alt="Hover Effect">
+            <p>Hover Effect</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+<!-- ### Explanation
+Applying various image effects using CSS can enhance the visual appeal of your images on a webpage. Below is an example that demonstrates several popular image effects using CSS, including grayscale, sepia, blur, brightness, and hover effects.
+
+### Complete HTML File with Embedded CSS
+
+```html
+1. **HTML Structure**:
+   - **`.image-container`**: Contains images arranged in a responsive grid.
+   - **`.image-effect`**: Wrapper for each image with a specific effect applied.
+   - **`.hover-effects`**: A special container for images that have a hover effect applied.
+
+2. **CSS Styling**:
+   - **`.image-container`**: Uses CSS Grid to create a responsive layout for the images. The `repeat(auto-fill, minmax(200px, 1fr))` ensures that the grid adjusts based on screen size.
+   - **`.image-container img`**: Applies general styles to all images including border-radius and transition effects.
+   - **`.grayscale`**, **`.sepia`**, **`.blur`**, **`.brightness`**, **`.contrast`**, **`.saturate`**: These classes apply different CSS `filter` properties to create various image effects.
+     - **`grayscale(100%)`**: Converts the image to grayscale.
+     - **`sepia(100%)`**: Applies a sepia tone to the image.
+     - **`blur(5px)`**: Applies a blur effect with a 5px radius.
+     - **`brightness(150%)`**: Increases brightness by 50%.
+     - **`contrast(200%)`**: Doubles the contrast.
+     - **`saturate(200%)`**: Doubles the saturation.
+   - **`.hover-effects img:hover`**: Adds hover effects to the images, including scaling and additional filter adjustments.
+
+3. **Responsive Design**:
+   - The grid layout and image sizing adapt to different screen sizes, ensuring that the images are displayed nicely on both large and small screens.
+
+You can replace the placeholder images with your own and adjust the filter values to create different visual effects based on your preferences. This example demonstrates how to apply and combine various CSS filters to achieve a range of image effects. -->

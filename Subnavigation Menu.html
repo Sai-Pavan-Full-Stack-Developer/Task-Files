@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subnavigation Menu Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Side Navigation Bar */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+            overflow-x: hidden;
+            transition: width 0.3s;
+        }
+
+        .sidebar a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: #444;
+            padding-left: 20px;
+        }
+
+        .dropdown-content a {
+            font-size: 16px;
+            padding: 10px 20px;
+            color: white;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #666;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar.open {
+            width: 60px; /* Adjust for a collapsed sidebar if needed */
+        }
+
+        .content.shifted {
+            margin-left: 60px; /* Adjust for a collapsed sidebar if needed */
+        }
+
+        .toggle-btn {
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            background-color: #333;
+            border: none;
+            padding: 15px;
+            position: fixed;
+            top: 20px;
+            left: 250px;
+            transition: left 0.3s;
+        }
+
+        .toggle-btn.open {
+            left: 60px; /* Adjust for a collapsed sidebar if needed */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Side Navigation Bar -->
+    <div id="mySidebar" class="sidebar">
+        <button class="toggle-btn" onclick="toggleNav()">☰</button>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <div class="dropdown">
+            <a href="#">Services</a>
+            <div class="dropdown-content">
+                <a href="#">Web Design</a>
+                <a href="#">SEO</a>
+                <a href="#">Marketing</a>
+                <div class="dropdown">
+                    <a href="#">More Services</a>
+                    <div class="dropdown-content">
+                        <a href="#">Graphic Design</a>
+                        <a href="#">Content Writing</a>
+                        <a href="#">Consulting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Page Content -->
+    <div id="main" class="content">
+        <h2>Subnavigation Menu Example</h2>
+        <p>This is a page with a side navigation menu that includes submenus.</p>
+    </div>
+
+    <script>
+        function toggleNav() {
+            const sidebar = document.getElementById("mySidebar");
+            const content = document.getElementById("main");
+            const toggleBtn = document.querySelector(".toggle-btn");
+            
+            sidebar.classList.toggle("open");
+            content.classList.toggle("shifted");
+            toggleBtn.classList.toggle("open");
+        }
+    </script>
+
+</body>
+</html>
+```
+
+<!-- ### Explanation
+A subnavigation menu (or nested dropdown menu) allows for hierarchical navigation where a main menu item can expand to show additional options or submenus. This example will demonstrate a side navigation bar with submenus.
+
+### Complete HTML File with Embedded CSS and JavaScript
+
+```html
+1. **HTML Structure**:
+   - **`.sidebar`**: Contains the side navigation menu. The dropdowns are nested inside the sidebar.
+   - **`.dropdown`**: Represents items with nested submenus.
+   - **`.dropdown-content`**: The submenus that are hidden by default and displayed on hover.
+   - **`.toggle-btn`**: A button to collapse/expand the sidebar.
+
+2. **CSS Styling**:
+   - **`.sidebar`**: Styles the sidebar with a fixed position and background color.
+   - **`.sidebar a`**: Styles the navigation links within the sidebar.
+   - **`.dropdown-content`**: Styles the dropdown submenus with a background color and padding.
+   - **`.dropdown:hover .dropdown-content`**: Shows the dropdown content when hovering over the parent.
+   - **`.toggle-btn`**: Styles the button used to toggle the sidebar visibility.
+
+3. **JavaScript**:
+   - **`toggleNav()`**: Toggles the sidebar between open and closed states, adjusting the content margin and button position.
+
+This example demonstrates a sidebar with nested dropdown menus that appear when hovering over the parent menu item. It also includes a button to collapse or expand the sidebar.
+ Customize the styles and functionality as needed for your specific use case. -->

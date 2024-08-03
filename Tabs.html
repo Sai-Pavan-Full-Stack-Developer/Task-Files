@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Tab Container */
+        .tab-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Tab Links */
+        .tab-links {
+            display: flex;
+            cursor: pointer;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: -1px;
+        }
+
+        .tab-links div {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            border-radius: 5px 5px 0 0;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .tab-links div:hover {
+            background-color: #575757;
+        }
+
+        .tab-links .active {
+            background-color: #4CAF50;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tab-container">
+        <!-- Tab Links -->
+        <div class="tab-links">
+            <div class="tab-link active" onclick="openTab(event, 'tab1')">Tab 1</div>
+            <div class="tab-link" onclick="openTab(event, 'tab2')">Tab 2</div>
+            <div class="tab-link" onclick="openTab(event, 'tab3')">Tab 3</div>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="tab1" class="tab-content active">
+            <h2>Content for Tab 1</h2>
+            <p>This is the content for the first tab.</p>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <h2>Content for Tab 2</h2>
+            <p>This is the content for the second tab.</p>
+        </div>
+
+        <div id="tab3" class="tab-content">
+            <h2>Content for Tab 3</h2>
+            <p>This is the content for the third tab.</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(event, tabId) {
+            // Get all tab content elements
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Get all tab link elements
+            const tabLinks = document.querySelectorAll('.tab-link');
+            tabLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show the clicked tab content
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+<!-- Explanation
+HTML Structure:
+
+.tab-links: Contains the clickable tab headers.
+.tab-content: Contains the content for each tab, which will be shown or hidden based on the active tab.
+CSS Styling:
+
+.tab-links: Styles the container for the tab links, including a background color, padding, and border radius.
+.tab-link: Styles each tab link with padding, text alignment, and hover effects.
+.tab-content: Styles the content for each tab. Initially hidden, it becomes visible when its corresponding tab is active.
+JavaScript:
+
+openTab(event, tabId): This function is triggered when a tab is clicked.
+It first hides all tab content by removing the active class.
+It then removes the active class from all tab links.
+Finally, it displays the content for the clicked tab and adds the active class to the clicked tab link.
+This example creates a basic tabbed interface where users can switch between different content sections by clicking on the tab headers. 
+The CSS handles the appearance, while JavaScript manages the tab switching functionality. 
+You can customize the styling and functionality as needed to fit your design requirements. -->

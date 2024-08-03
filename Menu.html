@@ -1,0 +1,85 @@
+]<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Icon Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu-icon {
+            position: relative;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            display: inline-block;
+            background-color: #333;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .bar {
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .bar:nth-child(1) {
+            top: 5;
+        }
+
+        .bar:nth-child(2) {
+            top: 15px;
+        }
+
+        .bar:nth-child(3) {
+            top: 25px;
+        }
+
+        .menu-icon.active .bar:nth-child(1) {
+            transform: rotate(45deg);
+            top: 9px;
+        }
+
+        .menu-icon.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active .bar:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 9px;
+        }
+
+        /* Optional styling for the body */
+        .menu-content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div class="menu-content" id="menuContent" style="display: none;">
+        <h2>Menu Content</h2>
+        <p>This is the content that appears when the menu is toggled.</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menuIcon = document.querySelector('.menu-icon');
+            const menuContent = document.getElementById('menuContent');
+            menuIcon.classList.toggle('active');
+            menuContent.style.display = menuContent.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

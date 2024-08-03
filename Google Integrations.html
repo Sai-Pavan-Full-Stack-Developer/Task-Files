@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Integrations Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input, button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <!-- Google Fonts Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Google Maps Integration Section -->
+    <div class="section">
+        <h2>Google Maps Integration</h2>
+        <div id="map"></div>
+    </div>
+
+    <!-- Google reCAPTCHA Integration Section -->
+    <div class="section">
+        <h2>Google reCAPTCHA Integration</h2>
+        <form id="contactForm" action="submit_form.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Google Analytics Integration (This script should be added to all pages for tracking) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID_HERE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'YOUR_TRACKING_ID_HERE');
+    </script>
+
+    <!-- Google Maps JavaScript API -->
+    <script>
+        function initMap() {
+            var location = { lat: -34.397, lng: 150.644 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_MAPS_API_KEY_HERE&callback=initMap"></script>
+
+    <!-- Google reCAPTCHA JavaScript API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</body>
+</html>
+
+
+<!-- ### Explanation
+Integrating Google services into your website can enhance functionality and provide a better user experience. Below is a program that demonstrates several Google integrations, including:
+
+1. **Google Maps Integration**
+2. **Google Analytics Integration**
+3. **Google Fonts Integration**
+4. **Google reCAPTCHA Integration**
+
+### Complete HTML File with Embedded CSS and JavaScript
+
+```html
+#### **Google Maps Integration**
+
+- **HTML**: 
+  - `<div id="map"></div>`: Container for the map.
+  
+- **JavaScript**:
+  - **`initMap()`**: Function initializes the Google Map, setting its center and adding a marker.
+  - **`<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_MAPS_API_KEY_HERE&callback=initMap"></script>`**: Loads the Google Maps JavaScript API with your API key.
+
+#### **Google Analytics Integration**
+
+- **JavaScript**:
+  - **`<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID_HERE"></script>`**: Loads Google Analytics.
+  - **`gtag('config', 'YOUR_TRACKING_ID_HERE')`**: Configures Google Analytics with your tracking ID.
+
+#### **Google Fonts Integration**
+
+- **HTML**:
+  - **`<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">`**: Includes the Roboto font from Google Fonts.
+
+#### **Google reCAPTCHA Integration**
+
+- **HTML**:
+  - `<div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>`: Displays the reCAPTCHA widget.
+  - Replace `"YOUR_SITE_KEY_HERE"` with your actual site key.
+  
+- **JavaScript**:
+  - **`<script src="https://www.google.com/recaptcha/api.js" async defer></script>`**: Loads the reCAPTCHA API.
+
+### Customization
+
+1. **Replace API Keys**:
+   - **Google Maps API Key**: Replace `YOUR_MAPS_API_KEY_HERE`.
+   - **Google Analytics Tracking ID**: Replace `YOUR_TRACKING_ID_HERE`.
+   - **Google reCAPTCHA Site Key**: Replace `YOUR_SITE_KEY_HERE`.
+
+2. **Form Action**:
+   - Update the `action` attribute in the form to point to your form handling script (e.g., `submit_form.php`).
+
+This example provides a comprehensive overview of integrating various Google services into a webpage. You can expand or modify this as needed to fit specific requirements or include additional Google services. -->
